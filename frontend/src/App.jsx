@@ -171,7 +171,9 @@ export default function App() {
     setStatus({ msg: "Đang gửi approve… xác nhận trong MetaMask", type: "info" });
     try {
       const amt = ethers.parseUnits(amount, 6);
-      const tx  = await usdcContract.approve(contractAddress, amt);
+      const tx = await usdcContract.approve(contractAddress, amt, {
+  gasLimit: 100000n,
+});
       setStatus({ msg: `Approve đang xử lý: ${tx.hash.slice(0,14)}…`, type: "info" });
       await tx.wait();
       setStatus({ msg: "✅ Approve thành công! Giờ nhấn <b>Send</b>.", type: "ok" });
