@@ -7,7 +7,7 @@ module.exports = {
   networks: {
     arc_testnet: {
       url: "https://rpc.testnet.arc.network",
-      chainId: 5042002,
+      chainId: 5046130,
       accounts: process.env.DEPLOYER_PRIVATE_KEY
         ? [process.env.DEPLOYER_PRIVATE_KEY]
         : [],
