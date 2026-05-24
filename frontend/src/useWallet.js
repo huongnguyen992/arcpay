@@ -3,11 +3,8 @@ import { ethers } from "ethers";
 import { ARC_TESTNET, CHAIN_ID_DEC, USDC_ADDRESS, USDC_ABI, CONTRACT_ABI } from "./config.js";
 
 // Đọc địa chỉ contract từ file được tạo lúc deploy
-let CONTRACT_ADDRESS = "0x0000000000000000000000000000000000000000";
-try {
-  const info = await import("./contract.json");
-  CONTRACT_ADDRESS = info.address;
-} catch (_) {}
+import contractInfo from "./contract.json";
+const CONTRACT_ADDRESS = contractInfo.address || "0x0000000000000000000000000000000000000000";
 
 export function useWallet() {
   const [account,       setAccount]       = useState(null);
