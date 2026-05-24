@@ -41,18 +41,18 @@ export function useWallet() {
 
       // Switch sang Arc Testnet
       try {
-        await window.ethereum.request({
-          method: "wallet_switchEthereumChain",
-          params: [{ chainId: ARC_TESTNET.chainId }],
-        });
-      } catch (sw) {
-        if (sw.code === 4902) {
-          await window.ethereum.request({
-            method: "wallet_addEthereumChain",
-            params: [ARC_TESTNET],
-          });
-        } else throw sw;
-      }
+  await window.ethereum.request({
+    method: "wallet_switchEthereumChain",
+    params: [{ chainId: "0x4cef52" }],
+  });
+} catch (sw) {
+  if (sw.code === 4902) {
+    await window.ethereum.request({
+      method: "wallet_addEthereumChain",
+      params: [ARC_TESTNET],
+    });
+  } else throw sw;
+}
 
       const prov2  = new ethers.BrowserProvider(window.ethereum);
       const sgn    = await prov2.getSigner();
