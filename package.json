@@ -1,0 +1,22 @@
+{
+  "name": "arcpay",
+  "version": "1.0.0",
+  "description": "P2P USDC Payment App trên Arc Testnet — Full Stack",
+  "private": true,
+  "scripts": {
+    "install:all":   "npm install && cd frontend && npm install && cd ../backend && npm install",
+    "compile":       "npx hardhat compile",
+    "deploy":        "npx hardhat run scripts/deploy.js --network arc_testnet",
+    "frontend:dev":  "cd frontend && npm run dev",
+    "backend:dev":   "cd backend && npm run dev",
+    "dev":           "concurrently \"npm run backend:dev\" \"npm run frontend:dev\"",
+    "frontend:build":"cd frontend && npm run build",
+    "backend:start": "cd backend && npm start"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^4.0.0",
+    "concurrently": "^8.2.2",
+    "dotenv": "^16.3.1",
+    "hardhat": "^2.19.0"
+  }
+}
