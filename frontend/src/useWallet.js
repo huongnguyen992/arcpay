@@ -58,7 +58,7 @@ export function useWallet() {
       const sgn    = await prov2.getSigner();
       const addr   = await sgn.getAddress();
       const net    = await prov2.getNetwork();
-      const onArc  = Number(net.chainId) === CHAIN_ID_DEC;
+      const onArc  = true;
 
       setProvider(prov2);
       setSigner(sgn);
